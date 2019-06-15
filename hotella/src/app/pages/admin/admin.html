@@ -1,0 +1,12 @@
+<div id ="admin" class="col">
+    
+        
+       
+    <div class="col" >
+            <ba-card cardTitle="Funcionarios" baCardClass="with-scroll" class="smart-table-container">
+                <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (createConfirm)="onCreateConfirm($event)" (editConfirm)="onSaveConfirm($event)"></ng2-smart-table>
+            </ba-card>
+    </div>
+
+
+</div>

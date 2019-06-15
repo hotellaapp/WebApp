@@ -1,0 +1,36 @@
+<div class="horizontal-scroll">
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th class="table-id">Id</th>
+      <th>Tipo de Serviço</th>
+      <th>Descrição</th>
+      <th>Quantidade</th>
+      <th>Nome</th>
+      <th>Contacto</th>
+      <th>Id de Reserva</th>
+      <th>Estado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of peopleTableData; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+        <div *ngIf="item.idPedido">
+          <td class="table-id">{{ item.idPedido }}</td>
+        </div>
+        <div *ngIf="item.idPedidoExterno">
+            <td class="table-id">{{ item.idPedidoExterno }}</td>
+        </div>
+      <td>{{ item.nome}}</td>
+      <td>{{ item.descricao}}</td>
+      <td>{{ item.quantidade}}</td>
+      <td>{{ item.nome_cliente }}</td>
+      <td>{{ item.contacto }}</td>
+      <td>{{ item.idReserva }}</td>
+      <td>
+        <button ngClass="{status-button btn btn-xs btn-{{ item.status }}"> {{item.dstat}} </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

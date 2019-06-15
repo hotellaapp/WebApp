@@ -1,0 +1,23 @@
+
+<div id = "{{json.criarCategoria}}" class="col">
+ 
+    <div id="{{json.mostrarEstado}}"  >
+        <label for="exampleSelect1">Estado da Categorias</label> 
+    
+        <select id="exampleSelect1" class="form-control"[(ngModel)]="selectedValue" (change)="mostrarCategorias($event.target.value)">
+            <option *ngFor="let c of estadoCategorias" [ngValue]="c.nome">{{c.nome}}</option>
+        </select>
+    </div>
+
+
+    <div id="{{json.mostrarTabelaCategoria}}" class="col"  style="display: none">
+            <ba-card cardTitle="Categorias presentes no hotel" baCardClass="with-scroll" class="smart-table-container">
+                <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="editar($event)" (deleteConfirm)="onDeleteConfirm($event)" (createConfirm)="onCreateConfirm($event)"></ng2-smart-table>
+            </ba-card>
+            <button class="btn btn-default btn-lg" (click)="tableHide()">Sair</button> 
+            <button id="butao" type="button" class="btn btn-default btn-lg" (click)="actualizar()"><i class="ion-ios-loop"></i></button>
+
+    </div>
+      
+
+</div>

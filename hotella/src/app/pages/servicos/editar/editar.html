@@ -1,0 +1,34 @@
+<div id= "{{json.editar}}" >
+    <div id="{{json.mostrarCategorias}}" class="form-group"  style="width: 190px; float: left;">
+        <label for="exampleSelect1">Categorias</label> 
+    
+        <select id="exampleSelect1" class="form-control"[(ngModel)]="selectedValue" (change)="onChange($event.target.value)">
+            <option *ngFor="let c of mostrarCategorias" [ngValue]="c.nome">{{c.nome}}</option>
+        </select>
+
+        <button id="butao" type="button" class="btn btn-default btn-icon" (click)="ngOnInit()"><i class="ion-ios-loop"></i></button>
+
+        
+    </div>
+
+
+    <div id="{{json.mostrarEstado}}" class="row" style="margin-left: 210px; display:none">
+        <label for="exampleSelect1">Estados</label> 
+    
+        <select id="exampleSelect1" class="form-control"[(ngModel)]="selectedValue" (change)="mostrarServicos($event.target.value)">
+            <option *ngFor="let c of estados" [ngValue]="c.nome">{{c.nome}}</option>
+        </select>
+    </div>
+ 
+    <div id = "{{json.apresentarServico}}" class="row"  style="display:none">
+            <ba-card cardTitle="Serviços disponíveis com a categoria {{valorSelecionado}}" baCardClass="with-scroll" class="smart-table-container">
+                <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (createConfirm)="onCreateConfirm($event)"></ng2-smart-table>
+            </ba-card>
+    
+            <button id="bt" class="btn btn-default btn-lg" (click)="tableHide()">Sair</button>
+    </div>
+    
+
+
+
+</div> 

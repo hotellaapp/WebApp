@@ -1,0 +1,9 @@
+<div class="widgets">
+  <div class="row">
+    <ba-card cardTitle='{{ categoria }}' baCardClass="with-scroll" class="smart-table-container" >
+      <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="editar($event)" (deleteConfirm)="onDeleteConfirm($event)" (createConfirm)="onCreateConfirm($event)" (userRowSelect)="onCellClick($event)">
+        
+      </ng2-smart-table>
+    </ba-card>
+  </div>
+</div>

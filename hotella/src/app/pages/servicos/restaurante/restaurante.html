@@ -1,0 +1,30 @@
+<div id ="{{json.restaurante}}" class="col">
+    
+  <div id="{{json.mostarEstadosMenu}}"  >
+        <div class="form-group">
+                <label for="exampleSelect1">Estado do Menu </label> 
+
+                <select id="exampleSelect1" class="form-control"[(ngModel)]="selectedValue" (change)="onChange($event.target.value)">
+                    <option *ngFor="let c of listaDeEstados" [ngValue]="c.nome">{{c.nome}}</option>
+                </select>
+        </div>
+  </div>  
+
+        
+       
+
+
+
+                <div id="{{json.mostrarTabelaMenu}}"  class="row" style="display: none" >
+                        <ba-card cardTitle="Menu" baCardClass="with-scroll" class="smart-table-container">
+                            <ng2-smart-table [settings]="settings" [source]="source"  (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onUpdateConfirm($event)" (createConfirm)="onCreateConfirm($event)"></ng2-smart-table>
+                        </ba-card>
+
+                        <button class="btn btn-default btn-lg" (click)="tableHide()">Sair</button>
+                        <button id="butao" type="button" class="btn btn-default btn-lg" (click)="actualizar()"><i class="ion-ios-loop"></i></button>
+
+                </div>
+            
+            
+</div>
+

@@ -1,0 +1,51 @@
+<div id = "{{json.editarServico}}" class="col">
+ 
+    <div id="{{json.listaServicos}}"  >
+        <label for="exampleSelect1">Lista de Serviços</label> 
+    
+        <select id="exampleSelect1" class="form-control"[(ngModel)]="selectedValue" (change)="mostrarServico($event.target.value)">
+            <option *ngFor="let c of listaServicos" [ngValue]="c.nome">{{c.nome}}</option>
+        </select>
+
+        <button id="butao" type="button" class="btn btn-default btn-icon" (click)="ngOnInit()"><i class="ion-ios-loop"></i></button>
+
+    </div>
+
+
+    <div id ="{{json.alterarServicos}}" class="row" style="display:none">
+
+        <div class="form-group">
+            <label for="input01">Nome</label>
+            <input [disabled]="ativo" type="text" class="form-control" [(ngModel)]='nomeServico' placeholder="Text">
+        </div>
+
+        <div class="form-group">
+            <label for="input01">Preço do Serviço</label>
+            <input [disabled]="ativo" type="text" class="form-control" [(ngModel)]='precoServico' placeholder="Text">
+        </div>
+
+        <div class="form-group">
+            <label for="input01">Estado do Serviço</label>
+            <input [disabled]="ativoEstado" type="text" [(ngModel)]='estadoServico' class="form-control" placeholder="Text">
+        </div>    
+
+        <button id="bt" class="btn btn-default" (click)="editar()">Editar</button>
+
+    </div>
+    
+    <div id="{{json.apresentarEstado}}" class="row" style="display:none">
+            <label for="exampleSelect1">Estados</label> 
+        
+            <select id="exampleSelect1" class="form-control"[(ngModel)]="selectedValue" (change)="editarEstados($event.target.value)">
+                <option *ngFor="let c of estados" [ngValue]="c.nome">{{c.nome}}</option>
+            </select>
+    </div>
+
+    <div id ="{{json.okBotao}}" style="display:none">
+        <button id="ok" class="btn btn-default" (click)="concluir()">Concluir</button>
+
+        <button id="ok" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+    </div>
+
+
+</div>    

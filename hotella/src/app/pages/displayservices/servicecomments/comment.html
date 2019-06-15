@@ -1,0 +1,30 @@
+<ba-card class="col-md-4" cardTitle="Comments" baCardClass="medium-card with-scroll table-panel">
+  <div class="feed-messages-container">
+    <div class="feed-message" *ngFor="let message of feed" (click)="expandMessage(message)">
+      <div class="message-icon" *ngIf="message.type == 'text-message'">
+        <!--<i _ngcontent-c9="" class="chart-icon i-person"></i>-->
+        <img class="photo-icon" src="{{ ( 99 | baProfilePicture ) }}">
+      </div>
+      <div class="text-block text-message">
+        <div class="message-header">
+              <span class="author">{{ message.name }}</span>
+        </div>
+        {{ message.header}}
+        <div class="message-content line-clamp" [ngClass]="{'line-clamp-2' : !message.expanded}">
+          <i>{{ message.texto}}</i>
+        </div>
+        Avaliação: {{message.classificacao}}/10
+        <div class="preview" [ngClass]="{'hidden': !message.expanded}" *ngIf="message.preview">
+        </div>
+        <div [ngClass]="{'hidden': !message.expanded}" class="message-time">
+          <div class="post-time">
+            {{ message.data | date :'short'}}
+          </div>
+          <div class="ago-time">
+            {{ message.ago }} {{message.agod}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ba-card>  
